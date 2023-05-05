@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: dim_event_types
+    description: Event types. Originally library_definition.
+    columns:
+      - name: id
+        data_type: md5 hash
+        description: Event ID
+
+      - name: description
+        data_type: text
+        description: Event type
+
+  - name: dim_requests
+    description: Requests
+    columns:
+      - name: id
+        data_type: md5 hash
+        description: Request ID
+
+      - name: description
+        data_type: text
+        description: Request description
+
+  - name: dim_spass_types
+    description: Science Planning Attitude Spread Sheet
+    columns:
+      - name: id
+        data_type: text
+        description: SPASS ID
+
+      - name: description
+        data_type: text
+        description: SPASS reference
+
+  - name: dim_targets
+    description: Celestial body of interest
+    columns:
+      - name: id
+        data_type: text
+        description: Target ID
+
+      - name: description
+        data_type: text
+        description: Celestial body
+
+  - name: dim_teams
+    description: Which team/instrument was responsible for the task
+    columns:
+      - name: id
+        data_type: text
+        description: Team ID
+        tests:
+          - not_null
+          - unique
+
+      - name: description
+        data_type: text
+        description: Instrument name
+
+  - name: fact_events
+    description: Cassini's mission events
+

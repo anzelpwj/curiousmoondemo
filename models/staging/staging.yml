@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw_data
+    schema: import
+    description: Data imported from CSV
+    tables:
+      - name: master_plan
+        schema: import
+        identifier: master_plan
+        description: Master plan for Cassini mission
+
+models:
+  - name: stg_master_plan
+    description: Cleaned up master plan.
+
